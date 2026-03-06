@@ -6,19 +6,25 @@ using System.Threading.Tasks;
 
 namespace ProjetAtlantik
 {
-    public class secteur
+    internal class Secteur
     {
-        public int NOSECTEUR { get; set; }
-        public string NOM { get; set; }
+        private int _noSecteur;
+        private string _nom;
 
-        public secteur(int NOSECTEUR_, string NOM_)
+        public int GetID()
         {
-            this.NOSECTEUR = NOSECTEUR_;
-            this.NOM = NOM_;
+            return _noSecteur;
         }
+
+        public Secteur(int pNOSECTEUR, string pNOM)
+        {
+            this._noSecteur = pNOSECTEUR;
+            this._nom = pNOM;
+        }
+
         public override string ToString()
         {
-            return "n° Secteur : " + NOSECTEUR + ", " + "Nom : " + NOM;
+            return _nom;
         }
     }
 }

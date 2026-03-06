@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\loanb\\source\\repos\\ProjetAtlantik\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{127E9BA2-3D46-4FFE-833A-78158ECE39C3}|ProjetAtlantik\\ProjetAtlantik.csproj|C:\\Users\\loanb\\source\\repos\\ProjetAtlantik\\projetatlantik\\formacceuil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{127E9BA2-3D46-4FFE-833A-78158ECE39C3}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\formacceuil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{127E9BA2-3D46-4FFE-833A-78158ECE39C3}|ProjetAtlantik\\ProjetAtlantik.csproj|c:\\users\\loanb\\source\\repos\\projetatlantik\\projetatlantik\\formajouttarif.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{127E9BA2-3D46-4FFE-833A-78158ECE39C3}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\formajouttarif.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{127E9BA2-3D46-4FFE-833A-78158ECE39C3}|ProjetAtlantik\\ProjetAtlantik.csproj|C:\\Users\\loanb\\source\\repos\\ProjetAtlantik\\projetatlantik\\formacceuil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{127E9BA2-3D46-4FFE-833A-78158ECE39C3}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\formacceuil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{127E9BA2-3D46-4FFE-833A-78158ECE39C3}|ProjetAtlantik\\ProjetAtlantik.csproj|C:\\Users\\loanb\\source\\repos\\ProjetAtlantik\\projetatlantik\\formajouttarif.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{127E9BA2-3D46-4FFE-833A-78158ECE39C3}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\formajouttarif.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{127E9BA2-3D46-4FFE-833A-78158ECE39C3}|ProjetAtlantik\\ProjetAtlantik.csproj|c:\\users\\loanb\\source\\repos\\projetatlantik\\projetatlantik\\liaison.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{127E9BA2-3D46-4FFE-833A-78158ECE39C3}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\liaison.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{127E9BA2-3D46-4FFE-833A-78158ECE39C3}|ProjetAtlantik\\ProjetAtlantik.csproj|C:\\Users\\loanb\\source\\repos\\ProjetAtlantik\\projetatlantik\\formacceuil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{127E9BA2-3D46-4FFE-833A-78158ECE39C3}|ProjetAtlantik\\ProjetAtlantik.csproj|solutionrelative:projetatlantik\\formacceuil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,28 +34,52 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FormAcceuil.cs",
-              "DocumentMoniker": "C:\\Users\\loanb\\source\\repos\\ProjetAtlantik\\ProjetAtlantik\\FormAcceuil.cs",
-              "RelativeDocumentMoniker": "ProjetAtlantik\\FormAcceuil.cs",
-              "ToolTip": "C:\\Users\\loanb\\source\\repos\\ProjetAtlantik\\ProjetAtlantik\\FormAcceuil.cs",
-              "RelativeToolTip": "ProjetAtlantik\\FormAcceuil.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwCIAAAAqAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Liaison.cs",
+              "DocumentMoniker": "C:\\Users\\loanb\\source\\repos\\ProjetAtlantik\\ProjetAtlantik\\Liaison.cs",
+              "RelativeDocumentMoniker": "ProjetAtlantik\\Liaison.cs",
+              "ToolTip": "C:\\Users\\loanb\\source\\repos\\ProjetAtlantik\\ProjetAtlantik\\Liaison.cs",
+              "RelativeToolTip": "ProjetAtlantik\\Liaison.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-12T13:56:14.435Z",
+              "WhenOpened": "2026-03-06T15:33:30.009Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "FormAjoutTarif.cs",
+              "DocumentMoniker": "C:\\Users\\loanb\\source\\repos\\ProjetAtlantik\\ProjetAtlantik\\FormAjoutTarif.cs",
+              "RelativeDocumentMoniker": "ProjetAtlantik\\FormAjoutTarif.cs",
+              "ToolTip": "C:\\Users\\loanb\\source\\repos\\ProjetAtlantik\\ProjetAtlantik\\FormAjoutTarif.cs",
+              "RelativeToolTip": "ProjetAtlantik\\FormAjoutTarif.cs",
+              "ViewState": "AgIAAOoAAAAAAAAAAAAUwNIAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T15:54:14.5Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormAjoutTarif.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\loanb\\source\\repos\\ProjetAtlantik\\ProjetAtlantik\\FormAjoutTarif.cs",
+              "RelativeDocumentMoniker": "ProjetAtlantik\\FormAjoutTarif.cs",
+              "ToolTip": "C:\\Users\\loanb\\source\\repos\\ProjetAtlantik\\ProjetAtlantik\\FormAjoutTarif.cs [Design]",
+              "RelativeToolTip": "ProjetAtlantik\\FormAjoutTarif.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-03T15:42:42.124Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "FormAcceuil.cs [Design]",
               "DocumentMoniker": "C:\\Users\\loanb\\source\\repos\\ProjetAtlantik\\ProjetAtlantik\\FormAcceuil.cs",
               "RelativeDocumentMoniker": "ProjetAtlantik\\FormAcceuil.cs",
               "ToolTip": "C:\\Users\\loanb\\source\\repos\\ProjetAtlantik\\ProjetAtlantik\\FormAcceuil.cs [Design]",
               "RelativeToolTip": "ProjetAtlantik\\FormAcceuil.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-12T13:53:35.636Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-03-05T10:56:28.131Z"
             }
           ]
         }

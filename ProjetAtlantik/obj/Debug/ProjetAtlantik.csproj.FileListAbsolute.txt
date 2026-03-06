@@ -42,3 +42,5 @@ C:\Users\loanb\source\repos\ProjetAtlantik\ProjetAtlantik\bin\Debug\MySql.Data.x
 C:\Users\loanb\source\repos\ProjetAtlantik\ProjetAtlantik\bin\Debug\System.Configuration.ConfigurationManager.xml
 C:\Users\loanb\source\repos\ProjetAtlantik\ProjetAtlantik\bin\Debug\System.IO.Pipelines.xml
 C:\Users\loanb\source\repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormAjoutPort.resources
+C:\Users\loanb\source\repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormAjoutLiaison.resources
+C:\Users\loanb\source\repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormAjoutTarif.resources

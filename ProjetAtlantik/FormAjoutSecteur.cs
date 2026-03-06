@@ -14,11 +14,9 @@ namespace ProjetAtlantik
 {
     public partial class FormAjoutSecteur : Form
     {
-        private ErrorProvider errorProvider = new ErrorProvider();
         public FormAjoutSecteur()
         {
             InitializeComponent();
-            errorProvider.ContainerControl = this;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -26,11 +24,10 @@ namespace ProjetAtlantik
             string nomSecteur = tbxNomSecteur.Text;
             if (string.IsNullOrWhiteSpace(nomSecteur))
             {
-                errorProvider.SetError(tbxNomSecteur, "Le nom du secteur est requis.");
-                tbxNomSecteur.Focus();
+                lblMessageSecteur.ForeColor = Color.Red;
+                lblMessageSecteur.Text = "Le nom du Secteur est requis.";
                 return;
             }
-            errorProvider.SetError(tbxNomSecteur, string.Empty);
 
             MySqlConnection maCnx;
             maCnx = new MySqlConnection("Server=127.0.0.1;Port=3306;User Id= appuser;Password=mdp;Database=projectatlantik;");
@@ -84,7 +81,7 @@ namespace ProjetAtlantik
         private void tbxNomSecteur_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(tbxNomSecteur.Text))
-                errorProvider.SetError(tbxNomSecteur, string.Empty);
+                lblMessageSecteur = null;
         }
     }
 }

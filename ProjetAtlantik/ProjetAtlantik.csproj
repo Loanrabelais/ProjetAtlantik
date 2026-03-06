@@ -127,9 +127,13 @@
     <Compile Include="FormAjoutTarif.Designer.cs">
       <DependentUpon>FormAjoutTarif.cs</DependentUpon>
     </Compile>
+    <Compile Include="Liaison.cs" />
+    <Compile Include="Periode.cs" />
+    <Compile Include="Port.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Secteur.cs" />
+    <Compile Include="Type.cs" />
     <EmbeddedResource Include="FormAcceuil.resx">
       <DependentUpon>FormAcceuil.cs</DependentUpon>
     </EmbeddedResource>
@@ -141,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAjoutSecteur.resx">
       <DependentUpon>FormAjoutSecteur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAjoutTarif.resx">
+      <DependentUpon>FormAjoutTarif.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

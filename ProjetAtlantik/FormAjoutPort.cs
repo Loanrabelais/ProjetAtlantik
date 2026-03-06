@@ -13,7 +13,6 @@ namespace ProjetAtlantik
 {
     public partial class FormAjoutPort : Form
     {
-        private ErrorProvider errorProvider = new ErrorProvider();
         public FormAjoutPort()
         {
             InitializeComponent();
@@ -24,11 +23,11 @@ namespace ProjetAtlantik
             string nomPort = tbxNomPort.Text;
             if (string.IsNullOrWhiteSpace(nomPort))
             {
-                errorProvider.SetError(tbxNomPort, "Le nom du Port est requis.");
+                lblMessagePort.ForeColor = Color.Red;
+                lblMessagePort.Text = "Le nom du Port est requis.";
                 tbxNomPort.Focus();
                 return;
             }
-            errorProvider.SetError(tbxNomPort, string.Empty);
 
             MySqlConnection maCnx;
             maCnx = new MySqlConnection("Server=127.0.0.1;Port=3306;User Id= appuser;Password=mdp;Database=projectatlantik;");
@@ -72,7 +71,7 @@ namespace ProjetAtlantik
             }
             finally
             {
-                if (maCnx is object && maCnx.State == System.Data.ConnectionState.Open)
+                if (maCnx is object && maCnx.State == ConnectionState.Open)
                 {
                     maCnx.Close();
                 }
@@ -81,7 +80,7 @@ namespace ProjetAtlantik
         private void tbxNomPort_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(tbxNomPort.Text))
-                errorProvider.SetError(tbxNomPort, string.Empty);
+                lblMessagePort = null;
         }
     }
 }
