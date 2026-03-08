@@ -1,24 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProjetAtlantik
+﻿namespace ProjetAtlantik
 {
-    public class Bateau
+    internal class Bateau
     {
-        public int NOBATEAU { get; set; }
-        public string NOM { get; set; }
-
-        public Bateau(int NOBATEAU_, string NOM_)
+        private int _nobateau;
+        private string _nom;
+        public Bateau(int pNOBATEAU, string pNOM)
         {
-            this.NOBATEAU = NOBATEAU_;
-            this.NOM = NOM_;
+            this._nobateau = pNOBATEAU;
+            this._nom = pNOM;
         }
+
+        public int GetID()
+        {
+            return _nobateau;
+        }
+
         public override string ToString()
         {
-            return "n° Bateau : " + NOBATEAU + ", " + "Nom : " + NOM;
+            return _nom;
         }
     }
 }

@@ -37,6 +37,7 @@
             this.btnAfficherTraverse = new System.Windows.Forms.Button();
             this.btnAjoutDetail = new System.Windows.Forms.Button();
             this.btnParamSite = new System.Windows.Forms.Button();
+            this.btnModifierBateau = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAjouterSecteur
@@ -83,9 +84,9 @@
             // 
             this.btnAjoutBateau.Location = new System.Drawing.Point(130, 172);
             this.btnAjoutBateau.Name = "btnAjoutBateau";
-            this.btnAjoutBateau.Size = new System.Drawing.Size(899, 23);
+            this.btnAjoutBateau.Size = new System.Drawing.Size(446, 23);
             this.btnAjoutBateau.TabIndex = 4;
-            this.btnAjoutBateau.Text = "Ajouter ou modifier un Bateau";
+            this.btnAjoutBateau.Text = "Ajouter un Bateau";
             this.btnAjoutBateau.UseVisualStyleBackColor = true;
             this.btnAjoutBateau.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -130,11 +131,22 @@
             this.btnParamSite.UseVisualStyleBackColor = true;
             this.btnParamSite.Click += new System.EventHandler(this.button9_Click);
             // 
+            // btnModifierBateau
+            // 
+            this.btnModifierBateau.Location = new System.Drawing.Point(582, 172);
+            this.btnModifierBateau.Name = "btnModifierBateau";
+            this.btnModifierBateau.Size = new System.Drawing.Size(447, 23);
+            this.btnModifierBateau.TabIndex = 9;
+            this.btnModifierBateau.Text = "Modifier un Bateau";
+            this.btnModifierBateau.UseVisualStyleBackColor = true;
+            this.btnModifierBateau.Click += new System.EventHandler(this.btnModifierBateau_Click);
+            // 
             // FormAcceuil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1143, 391);
+            this.Controls.Add(this.btnModifierBateau);
             this.Controls.Add(this.btnParamSite);
             this.Controls.Add(this.btnAjoutDetail);
             this.Controls.Add(this.btnAfficherTraverse);
@@ -162,6 +174,7 @@
         private System.Windows.Forms.Button btnAfficherTraverse;
         private System.Windows.Forms.Button btnAjoutDetail;
         private System.Windows.Forms.Button btnParamSite;
+        private System.Windows.Forms.Button btnModifierBateau;
     }
 }
 

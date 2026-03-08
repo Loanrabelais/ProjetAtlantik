@@ -43,7 +43,8 @@ namespace ProjetAtlantik
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            FormAjoutBateau formAjoutBateau = new FormAjoutBateau();
+            formAjoutBateau.ShowDialog();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -69,6 +70,12 @@ namespace ProjetAtlantik
         private void FormAcceuil_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnModifierBateau_Click(object sender, EventArgs e)
+        {
+            //FormModifierBateau formModifierBateau = new FormModifierBateau();
+            //formModifierBateau.ShowDialog();
         }
     }
 }
