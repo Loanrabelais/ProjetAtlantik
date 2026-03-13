@@ -98,6 +98,12 @@
   <ItemGroup>
     <Compile Include="Bateau.cs" />
     <Compile Include="Categorie.cs" />
+    <Compile Include="FormAfficherTraversee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAfficherTraversee.Designer.cs">
+      <DependentUpon>FormAfficherTraversee.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAjoutBateau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,15 +140,31 @@
     <Compile Include="FormAjoutTarif.Designer.cs">
       <DependentUpon>FormAjoutTarif.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAjoutTraverse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAjoutTraverse.Designer.cs">
+      <DependentUpon>FormAjoutTraverse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormModifierBateau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormModifierBateau.Designer.cs">
+      <DependentUpon>FormModifierBateau.cs</DependentUpon>
+    </Compile>
     <Compile Include="Liaison.cs" />
     <Compile Include="Periode.cs" />
     <Compile Include="Port.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Secteur.cs" />
+    <Compile Include="Traversee.cs" />
     <Compile Include="Type.cs" />
     <EmbeddedResource Include="FormAcceuil.resx">
       <DependentUpon>FormAcceuil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAfficherTraversee.resx">
+      <DependentUpon>FormAfficherTraversee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAjoutBateau.resx">
       <DependentUpon>FormAjoutBateau.cs</DependentUpon>
@@ -158,6 +180,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAjoutTarif.resx">
       <DependentUpon>FormAjoutTarif.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAjoutTraverse.resx">
+      <DependentUpon>FormAjoutTraverse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormModifierBateau.resx">
+      <DependentUpon>FormModifierBateau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

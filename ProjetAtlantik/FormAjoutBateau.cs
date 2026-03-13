@@ -21,34 +21,33 @@ namespace ProjetAtlantik
 
                 // -------- Categorie Generation dynamique --------
                 var requeteType = "SELECT LETTRECATEGORIE, LIBELLE FROM CATEGORIE";
-                using (var cmdType = new MySqlCommand(requeteType, maCnx))
+                var cmdType = new MySqlCommand(requeteType, maCnx);
+                jeuEnr = cmdType.ExecuteReader();
+                int i = 20;
+                while (jeuEnr.Read())
                 {
-                    jeuEnr = cmdType.ExecuteReader();
-                    int i = 20;
-                    while (jeuEnr.Read())
-                    {
-                        string lettre = (string)jeuEnr["LETTRECATEGORIE"];
-                        string libelle = (string)jeuEnr[("LIBELLE")];
-                        var uneCategorie = new Categorie(lettre, libelle);
-                        //Generation label et textbox
-                        TextBox tbx;
-                        tbx = new TextBox();
-                        tbx.Location = new Point(150, i);
-                        tbx.Tag = uneCategorie; // conserve l'objet Categorie
-                        tbx.Name = $"tbx{lettre}{libelle}";
-                        Label lbl;
-                        lbl = new Label();
-                        lbl.Text = $"{uneCategorie.GetID()} ({uneCategorie.ToString()})";
-                        lbl.Name = $"lbl{lettre}{libelle}";
-                        lbl.Location = new Point(10, i);
-                        lbl.AutoSize = true;
-                        gbxCapacite.Controls.Add(tbx);
-                        gbxCapacite.Controls.Add(lbl);
+                    string lettre = (string)jeuEnr["LETTRECATEGORIE"];
+                    string libelle = (string)jeuEnr["LIBELLE"];
+                    //int idxNoType = jeuEnr.GetOrdinal("NOTYPE"); //Retourne l'index de la colonne "NOTYPE"
+                    var uneCategorie = new Categorie(lettre, libelle);
+                    //Generation label et textbox
+                    TextBox tbx;
+                    tbx = new TextBox();
+                    tbx.Location = new Point(150, i);
+                    tbx.Tag = uneCategorie; // conserve l'objet Categorie
+                    tbx.Name = $"tbx{lettre}{libelle}";
+                    Label lbl;
+                    lbl = new Label();
+                    lbl.Text = $"{uneCategorie.GetID()} ({uneCategorie.ToString()})";
+                    lbl.Name = $"lbl{lettre}{libelle}";
+                    lbl.Location = new Point(10, i);
+                    lbl.AutoSize = true;
+                    gbxCapacite.Controls.Add(tbx);
+                    gbxCapacite.Controls.Add(lbl);
 
-                        i += 40;
-                    }
-                    jeuEnr.Close();
+                    i += 40;
                 }
+                jeuEnr.Close();
             }
             catch (MySqlException ex)
             {
@@ -86,32 +85,25 @@ namespace ProjetAtlantik
 
                 // -------- Bateau --------
                 string nomBateau = tbxNomBateau.Text;
-                int noBateau;
                 var requeteBateau = "INSERT INTO BATEAU (NOM) VALUES (@nomBateau); SELECT LAST_INSERT_ID();";
-                using (var cmdBateau = new MySqlCommand(requeteBateau, maCnx))
-                {
-                    cmdBateau.Parameters.AddWithValue("@nomBateau", nomBateau);
-                    noBateau = Convert.ToInt32(cmdBateau.ExecuteScalar());
-                }
+                var cmdBateau = new MySqlCommand(requeteBateau, maCnx);
+                cmdBateau.Parameters.AddWithValue("@nomBateau", nomBateau);
+                int noBateau = Convert.ToInt32(cmdBateau.ExecuteScalar());
 
                 foreach (Control c in gbxCapacite.Controls)
                 {
                     if (c is TextBox tb && tb.Tag is Categorie categorie)
                     {
-                        if (!int.TryParse(tb.Text.Replace('.', ','), out int capacite))
-                        {
-                            continue;
-                        }
+                        if (!int.TryParse(tb.Text, out int capacite))
+                        { continue; }
 
                         // -------- Contenue --------
                         var requeteContenue = "INSERT INTO CONTENIR (LETTRECATEGORIE, NOBATEAU, CAPACITEMAX) VALUES (@lettreCategorie, @noBateau, @capaciteMax);";
-                        using (var cmdContenue = new MySqlCommand(requeteContenue, maCnx))
-                        {
-                            cmdContenue.Parameters.AddWithValue("@lettreCategorie", categorie.GetID());
-                            cmdContenue.Parameters.AddWithValue("@noBateau", noBateau);
-                            cmdContenue.Parameters.AddWithValue("@capaciteMax", capacite);
-                            cmdContenue.ExecuteNonQuery();
-                        }
+                        var cmdContenue = new MySqlCommand(requeteContenue, maCnx);
+                        cmdContenue.Parameters.AddWithValue("@lettreCategorie", categorie.GetID());
+                        cmdContenue.Parameters.AddWithValue("@noBateau", noBateau);
+                        cmdContenue.Parameters.AddWithValue("@capaciteMax", capacite);
+                        cmdContenue.ExecuteNonQuery();
                     }
                 }
             }

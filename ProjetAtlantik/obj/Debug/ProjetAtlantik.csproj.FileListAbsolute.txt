@@ -45,3 +45,6 @@ C:\Users\loanb\source\repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlant
 C:\Users\loanb\source\repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormAjoutLiaison.resources
 C:\Users\loanb\source\repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormAjoutTarif.resources
 C:\Users\loanb\source\repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormAjoutBateau.resources
+C:\Users\loanb\source\repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormModifierBateau.resources
+C:\Users\loanb\source\repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormAjoutTraverse.resources
+C:\Users\loanb\source\repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormAfficherTraversee.resources

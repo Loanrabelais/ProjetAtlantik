@@ -1,4 +1,6 @@
-﻿namespace ProjetAtlantik
+﻿using System;
+
+namespace ProjetAtlantik
 {
     internal class Bateau
     {

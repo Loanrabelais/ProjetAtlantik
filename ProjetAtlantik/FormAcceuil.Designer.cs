@@ -28,153 +28,158 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnAjouterSecteur = new System.Windows.Forms.Button();
-            this.btnAjoutPort = new System.Windows.Forms.Button();
-            this.AjoutLiaison = new System.Windows.Forms.Button();
-            this.btnAjoutTarif = new System.Windows.Forms.Button();
-            this.btnAjoutBateau = new System.Windows.Forms.Button();
-            this.btnAjoutTraverse = new System.Windows.Forms.Button();
-            this.btnAfficherTraverse = new System.Windows.Forms.Button();
-            this.btnAjoutDetail = new System.Windows.Forms.Button();
-            this.btnParamSite = new System.Windows.Forms.Button();
-            this.btnModifierBateau = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.actionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajouterUnSecteurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajouterUnPortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajouterUneLiaisonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajouterUnTarifToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajouterUnBateauToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifierUnBateauToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajouterUneTraverseeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.afficherUneTraverseeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ajouterUnDetailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modiferLesParameresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnAjouterSecteur
+            // contextMenuStrip1
             // 
-            this.btnAjouterSecteur.Location = new System.Drawing.Point(130, 56);
-            this.btnAjouterSecteur.Name = "btnAjouterSecteur";
-            this.btnAjouterSecteur.Size = new System.Drawing.Size(899, 23);
-            this.btnAjouterSecteur.TabIndex = 0;
-            this.btnAjouterSecteur.Text = "Ajouter un Secteur";
-            this.btnAjouterSecteur.UseVisualStyleBackColor = true;
-            this.btnAjouterSecteur.Click += new System.EventHandler(this.button1_Click);
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // btnAjoutPort
+            // menuStrip1
             // 
-            this.btnAjoutPort.Location = new System.Drawing.Point(130, 85);
-            this.btnAjoutPort.Name = "btnAjoutPort";
-            this.btnAjoutPort.Size = new System.Drawing.Size(899, 23);
-            this.btnAjoutPort.TabIndex = 1;
-            this.btnAjoutPort.Text = "Ajouter un Port";
-            this.btnAjoutPort.UseVisualStyleBackColor = true;
-            this.btnAjoutPort.Click += new System.EventHandler(this.button2_Click);
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.actionToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(853, 28);
+            this.menuStrip1.TabIndex = 11;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // AjoutLiaison
+            // actionToolStripMenuItem
             // 
-            this.AjoutLiaison.Location = new System.Drawing.Point(130, 114);
-            this.AjoutLiaison.Name = "AjoutLiaison";
-            this.AjoutLiaison.Size = new System.Drawing.Size(899, 23);
-            this.AjoutLiaison.TabIndex = 2;
-            this.AjoutLiaison.Text = "Ajouter une Liaison";
-            this.AjoutLiaison.UseVisualStyleBackColor = true;
-            this.AjoutLiaison.Click += new System.EventHandler(this.button3_Click);
+            this.actionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ajouterUnSecteurToolStripMenuItem,
+            this.ajouterUnPortToolStripMenuItem,
+            this.ajouterUneLiaisonToolStripMenuItem,
+            this.ajouterUnTarifToolStripMenuItem,
+            this.ajouterUnBateauToolStripMenuItem,
+            this.modifierUnBateauToolStripMenuItem,
+            this.ajouterUneTraverseeToolStripMenuItem,
+            this.afficherUneTraverseeToolStripMenuItem,
+            this.ajouterUnDetailToolStripMenuItem,
+            this.modiferLesParameresToolStripMenuItem});
+            this.actionToolStripMenuItem.Name = "actionToolStripMenuItem";
+            this.actionToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.actionToolStripMenuItem.Text = "Action";
             // 
-            // btnAjoutTarif
+            // ajouterUnSecteurToolStripMenuItem
             // 
-            this.btnAjoutTarif.Location = new System.Drawing.Point(130, 143);
-            this.btnAjoutTarif.Name = "btnAjoutTarif";
-            this.btnAjoutTarif.Size = new System.Drawing.Size(899, 23);
-            this.btnAjoutTarif.TabIndex = 3;
-            this.btnAjoutTarif.Text = "Ajouter un Tarif pour une liaison et une période";
-            this.btnAjoutTarif.UseVisualStyleBackColor = true;
-            this.btnAjoutTarif.Click += new System.EventHandler(this.button4_Click);
+            this.ajouterUnSecteurToolStripMenuItem.Name = "ajouterUnSecteurToolStripMenuItem";
+            this.ajouterUnSecteurToolStripMenuItem.Size = new System.Drawing.Size(239, 26);
+            this.ajouterUnSecteurToolStripMenuItem.Text = "Ajouter un Secteur";
+            this.ajouterUnSecteurToolStripMenuItem.Click += new System.EventHandler(this.ajouterUnSecteurToolStripMenuItem_Click);
             // 
-            // btnAjoutBateau
+            // ajouterUnPortToolStripMenuItem
             // 
-            this.btnAjoutBateau.Location = new System.Drawing.Point(130, 172);
-            this.btnAjoutBateau.Name = "btnAjoutBateau";
-            this.btnAjoutBateau.Size = new System.Drawing.Size(446, 23);
-            this.btnAjoutBateau.TabIndex = 4;
-            this.btnAjoutBateau.Text = "Ajouter un Bateau";
-            this.btnAjoutBateau.UseVisualStyleBackColor = true;
-            this.btnAjoutBateau.Click += new System.EventHandler(this.button5_Click);
+            this.ajouterUnPortToolStripMenuItem.Name = "ajouterUnPortToolStripMenuItem";
+            this.ajouterUnPortToolStripMenuItem.Size = new System.Drawing.Size(239, 26);
+            this.ajouterUnPortToolStripMenuItem.Text = "Ajouter un Port";
+            this.ajouterUnPortToolStripMenuItem.Click += new System.EventHandler(this.ajouterUnPortToolStripMenuItem_Click);
             // 
-            // btnAjoutTraverse
+            // ajouterUneLiaisonToolStripMenuItem
             // 
-            this.btnAjoutTraverse.Location = new System.Drawing.Point(130, 201);
-            this.btnAjoutTraverse.Name = "btnAjoutTraverse";
-            this.btnAjoutTraverse.Size = new System.Drawing.Size(899, 23);
-            this.btnAjoutTraverse.TabIndex = 5;
-            this.btnAjoutTraverse.Text = "Ajouter une Traversée";
-            this.btnAjoutTraverse.UseVisualStyleBackColor = true;
-            this.btnAjoutTraverse.Click += new System.EventHandler(this.button6_Click);
+            this.ajouterUneLiaisonToolStripMenuItem.Name = "ajouterUneLiaisonToolStripMenuItem";
+            this.ajouterUneLiaisonToolStripMenuItem.Size = new System.Drawing.Size(239, 26);
+            this.ajouterUneLiaisonToolStripMenuItem.Text = "Ajouter une liaison";
+            this.ajouterUneLiaisonToolStripMenuItem.Click += new System.EventHandler(this.ajouterUneLiaisonToolStripMenuItem_Click);
             // 
-            // btnAfficherTraverse
+            // ajouterUnTarifToolStripMenuItem
             // 
-            this.btnAfficherTraverse.Location = new System.Drawing.Point(130, 230);
-            this.btnAfficherTraverse.Name = "btnAfficherTraverse";
-            this.btnAfficherTraverse.Size = new System.Drawing.Size(899, 23);
-            this.btnAfficherTraverse.TabIndex = 6;
-            this.btnAfficherTraverse.Text = "Afficher une Traversée pour une liaison et une date donné avec place restante par" +
-    " catégories";
-            this.btnAfficherTraverse.UseVisualStyleBackColor = true;
-            this.btnAfficherTraverse.Click += new System.EventHandler(this.button7_Click);
+            this.ajouterUnTarifToolStripMenuItem.Name = "ajouterUnTarifToolStripMenuItem";
+            this.ajouterUnTarifToolStripMenuItem.Size = new System.Drawing.Size(239, 26);
+            this.ajouterUnTarifToolStripMenuItem.Text = "Ajouter un Tarif";
+            this.ajouterUnTarifToolStripMenuItem.Click += new System.EventHandler(this.ajouterUnTarifToolStripMenuItem_Click);
             // 
-            // btnAjoutDetail
+            // ajouterUnBateauToolStripMenuItem
             // 
-            this.btnAjoutDetail.Location = new System.Drawing.Point(130, 259);
-            this.btnAjoutDetail.Name = "btnAjoutDetail";
-            this.btnAjoutDetail.Size = new System.Drawing.Size(899, 23);
-            this.btnAjoutDetail.TabIndex = 7;
-            this.btnAjoutDetail.Text = "Ajouter un Detail";
-            this.btnAjoutDetail.UseVisualStyleBackColor = true;
-            this.btnAjoutDetail.Click += new System.EventHandler(this.button8_Click);
+            this.ajouterUnBateauToolStripMenuItem.Name = "ajouterUnBateauToolStripMenuItem";
+            this.ajouterUnBateauToolStripMenuItem.Size = new System.Drawing.Size(239, 26);
+            this.ajouterUnBateauToolStripMenuItem.Text = "Ajouter un Bateau";
+            this.ajouterUnBateauToolStripMenuItem.Click += new System.EventHandler(this.ajouterUnBateauToolStripMenuItem_Click);
             // 
-            // btnParamSite
+            // modifierUnBateauToolStripMenuItem
             // 
-            this.btnParamSite.Location = new System.Drawing.Point(130, 288);
-            this.btnParamSite.Name = "btnParamSite";
-            this.btnParamSite.Size = new System.Drawing.Size(899, 23);
-            this.btnParamSite.TabIndex = 8;
-            this.btnParamSite.Text = "Modifier les Parametres du site";
-            this.btnParamSite.UseVisualStyleBackColor = true;
-            this.btnParamSite.Click += new System.EventHandler(this.button9_Click);
+            this.modifierUnBateauToolStripMenuItem.Name = "modifierUnBateauToolStripMenuItem";
+            this.modifierUnBateauToolStripMenuItem.Size = new System.Drawing.Size(239, 26);
+            this.modifierUnBateauToolStripMenuItem.Text = "Modifier un Bateau";
+            this.modifierUnBateauToolStripMenuItem.Click += new System.EventHandler(this.modifierUnBateauToolStripMenuItem_Click);
             // 
-            // btnModifierBateau
+            // ajouterUneTraverseeToolStripMenuItem
             // 
-            this.btnModifierBateau.Location = new System.Drawing.Point(582, 172);
-            this.btnModifierBateau.Name = "btnModifierBateau";
-            this.btnModifierBateau.Size = new System.Drawing.Size(447, 23);
-            this.btnModifierBateau.TabIndex = 9;
-            this.btnModifierBateau.Text = "Modifier un Bateau";
-            this.btnModifierBateau.UseVisualStyleBackColor = true;
-            this.btnModifierBateau.Click += new System.EventHandler(this.btnModifierBateau_Click);
+            this.ajouterUneTraverseeToolStripMenuItem.Name = "ajouterUneTraverseeToolStripMenuItem";
+            this.ajouterUneTraverseeToolStripMenuItem.Size = new System.Drawing.Size(239, 26);
+            this.ajouterUneTraverseeToolStripMenuItem.Text = "Ajouter une Traversée";
+            this.ajouterUneTraverseeToolStripMenuItem.Click += new System.EventHandler(this.ajouterUneTraverseeToolStripMenuItem_Click);
+            // 
+            // afficherUneTraverseeToolStripMenuItem
+            // 
+            this.afficherUneTraverseeToolStripMenuItem.Name = "afficherUneTraverseeToolStripMenuItem";
+            this.afficherUneTraverseeToolStripMenuItem.Size = new System.Drawing.Size(239, 26);
+            this.afficherUneTraverseeToolStripMenuItem.Text = "Afficher une Traversée";
+            this.afficherUneTraverseeToolStripMenuItem.Click += new System.EventHandler(this.afficherUneTraverseeToolStripMenuItem_Click);
+            // 
+            // ajouterUnDetailToolStripMenuItem
+            // 
+            this.ajouterUnDetailToolStripMenuItem.Name = "ajouterUnDetailToolStripMenuItem";
+            this.ajouterUnDetailToolStripMenuItem.Size = new System.Drawing.Size(239, 26);
+            this.ajouterUnDetailToolStripMenuItem.Text = "Ajouter un Détail";
+            this.ajouterUnDetailToolStripMenuItem.Click += new System.EventHandler(this.ajouterUnDetailToolStripMenuItem_Click);
+            // 
+            // modiferLesParameresToolStripMenuItem
+            // 
+            this.modiferLesParameresToolStripMenuItem.Name = "modiferLesParameresToolStripMenuItem";
+            this.modiferLesParameresToolStripMenuItem.Size = new System.Drawing.Size(239, 26);
+            this.modiferLesParameresToolStripMenuItem.Text = "Modifer les Paramères";
+            this.modiferLesParameresToolStripMenuItem.Click += new System.EventHandler(this.modiferLesParameresToolStripMenuItem_Click);
             // 
             // FormAcceuil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1143, 391);
-            this.Controls.Add(this.btnModifierBateau);
-            this.Controls.Add(this.btnParamSite);
-            this.Controls.Add(this.btnAjoutDetail);
-            this.Controls.Add(this.btnAfficherTraverse);
-            this.Controls.Add(this.btnAjoutTraverse);
-            this.Controls.Add(this.btnAjoutBateau);
-            this.Controls.Add(this.btnAjoutTarif);
-            this.Controls.Add(this.AjoutLiaison);
-            this.Controls.Add(this.btnAjoutPort);
-            this.Controls.Add(this.btnAjouterSecteur);
+            this.ClientSize = new System.Drawing.Size(853, 373);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormAcceuil";
             this.Text = "Acceuil";
-            this.Load += new System.EventHandler(this.FormAcceuil_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnAjouterSecteur;
-        private System.Windows.Forms.Button btnAjoutPort;
-        private System.Windows.Forms.Button AjoutLiaison;
-        private System.Windows.Forms.Button btnAjoutTarif;
-        private System.Windows.Forms.Button btnAjoutBateau;
-        private System.Windows.Forms.Button btnAjoutTraverse;
-        private System.Windows.Forms.Button btnAfficherTraverse;
-        private System.Windows.Forms.Button btnAjoutDetail;
-        private System.Windows.Forms.Button btnParamSite;
-        private System.Windows.Forms.Button btnModifierBateau;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem actionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ajouterUnSecteurToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ajouterUnPortToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ajouterUneLiaisonToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ajouterUnTarifToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ajouterUnBateauToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modifierUnBateauToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ajouterUneTraverseeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem afficherUneTraverseeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ajouterUnDetailToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modiferLesParameresToolStripMenuItem;
     }
 }
 

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -54,18 +53,32 @@ namespace ProjetAtlantik
 
                     // -------- Secteurs --------
                     var requeteSecteur = "SELECT NOSECTEUR, NOM FROM SECTEUR";
-                    using (var cmdSecteur = new MySqlCommand(requeteSecteur, maCnx))
+                    var cmdSecteur = new MySqlCommand(requeteSecteur, maCnx);
+                    jeuEnr = cmdSecteur.ExecuteReader();
+                    while (jeuEnr.Read())
                     {
-                        jeuEnr = cmdSecteur.ExecuteReader();
-                        while (jeuEnr.Read())
-                        {
-                            int no = (int)jeuEnr["NOSECTEUR"];
-                            string nom = (string)jeuEnr["NOM"];
-                            var unSecteur = new Secteur(no, nom);
-                            lbxSecteur.Items.Add(unSecteur);
-                        }
-                        jeuEnr.Close();
+                        int no = (int)jeuEnr["NOSECTEUR"];
+                        string nom = (string)jeuEnr["NOM"];
+                        var unSecteur = new Secteur(no, nom);
+                        lbxSecteur.Items.Add(unSecteur);
                     }
+                    jeuEnr.Close();
+                    // -------- Periode --------
+                    var requetePeriode = "SELECT NOPERIODE, DATEDEBUT, DATEFIN FROM PERIODE";
+                    var cdePeriode = new MySqlCommand(requetePeriode, maCnx);
+
+                    jeuEnr = cdePeriode.ExecuteReader();
+                    cmbPeriode.Items.Clear();
+                    while (jeuEnr.Read())
+                    {
+                        int noPeriode = Convert.ToInt32(jeuEnr["NOPERIODE"]);
+                        DateTime dateDebut = jeuEnr.GetDateTime(jeuEnr.GetOrdinal("DATEDEBUT"));
+                        DateTime dateFin = jeuEnr.GetDateTime(jeuEnr.GetOrdinal("DATEFIN"));
+
+                        var unePeriode = new Periode(noPeriode, dateDebut, dateFin);
+                        cmbPeriode.Items.Add(unePeriode);
+                    }
+                    jeuEnr.Close();
                 }
             }
             catch (MySqlException ex)
@@ -137,21 +150,6 @@ namespace ProjetAtlantik
                     }
                 }
                 jeuEnr.Close();
-                // -------- Periode --------
-                var requetePeriode = "SELECT NOPERIODE, DATEDEBUT, DATEFIN FROM PERIODE";
-                var cdePeriode = new MySqlCommand(requetePeriode, maCnx);
-
-                    jeuEnr = cdePeriode.ExecuteReader();
-                cmbPeriode.Items.Clear();
-                while (jeuEnr.Read())
-                {
-                    int noPeriode = Convert.ToInt32(jeuEnr["NOPERIODE"]);
-                    DateTime dateDebut = jeuEnr.GetDateTime(jeuEnr.GetOrdinal("DATEDEBUT"));
-                    DateTime dateFin = jeuEnr.GetDateTime(jeuEnr.GetOrdinal("DATEFIN"));
-
-                    var unePeriode = new Periode(noPeriode, dateDebut, dateFin);
-                    cmbPeriode.Items.Add(unePeriode);
-                }
             }
             catch (MySqlException ex)
             {
@@ -214,15 +212,13 @@ namespace ProjetAtlantik
                         var requeteLiaison =
                             "INSERT INTO tarifer (NOPERIODE, LETTRECATEGORIE, NOTYPE, NOLIAISON, TARIF)" +
                             "VALUES(@noPer, @lettre, @noType, @noLiaison, @tarif)";
-                        using (var cdeLiaison = new MySqlCommand(requeteLiaison, maCnx))
-                        {
-                            cdeLiaison.Parameters.AddWithValue("@noPer", noPeriode);
-                            cdeLiaison.Parameters.AddWithValue("@lettre", lettreCategorie);
-                            cdeLiaison.Parameters.AddWithValue("@noType", noType);
-                            cdeLiaison.Parameters.AddWithValue("@noLiaison", noLiaison);
-                            cdeLiaison.Parameters.AddWithValue("@tarif", tarif);
-                            cdeLiaison.ExecuteNonQuery();
-                        }
+                        var cdeLiaison = new MySqlCommand(requeteLiaison, maCnx);
+                        cdeLiaison.Parameters.AddWithValue("@noPer", noPeriode);
+                        cdeLiaison.Parameters.AddWithValue("@lettre", lettreCategorie);
+                        cdeLiaison.Parameters.AddWithValue("@noType", noType);
+                        cdeLiaison.Parameters.AddWithValue("@noLiaison", noLiaison);
+                        cdeLiaison.Parameters.AddWithValue("@tarif", tarif);
+                        cdeLiaison.ExecuteNonQuery();
                     }
                 }
             }
