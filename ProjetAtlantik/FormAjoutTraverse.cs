@@ -115,8 +115,7 @@ namespace ProjetAtlantik
                             string nomPortDepart = Convert.ToString(jeuEnr["NOMPORT_DEPART"]);
                             string nomPortArrivee = Convert.ToString(jeuEnr["NOMPORT_ARRIVEE"]);
 
-                            var uneLiaison = new Liaison(noLiaison, noPortDepart, noSecteur,
-                                noPortArrivee, nomPortDepart, nomPortArrivee);
+                            var uneLiaison = new Liaison(noLiaison, nomPortDepart, nomPortArrivee);
                             cmbLiaison.Items.Add(uneLiaison);
                         }
                     }

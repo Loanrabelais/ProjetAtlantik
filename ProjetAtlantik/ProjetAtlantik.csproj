@@ -98,6 +98,13 @@
   <ItemGroup>
     <Compile Include="Bateau.cs" />
     <Compile Include="Categorie.cs" />
+    <Compile Include="Client.cs" />
+    <Compile Include="FormAfficherReservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAfficherReservation.Designer.cs">
+      <DependentUpon>FormAfficherReservation.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAfficherTraversee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +169,9 @@
     <Compile Include="Type.cs" />
     <EmbeddedResource Include="FormAcceuil.resx">
       <DependentUpon>FormAcceuil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAfficherReservation.resx">
+      <DependentUpon>FormAfficherReservation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAfficherTraversee.resx">
       <DependentUpon>FormAfficherTraversee.cs</DependentUpon>

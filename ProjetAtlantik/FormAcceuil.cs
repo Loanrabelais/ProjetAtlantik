@@ -71,13 +71,12 @@ namespace ProjetAtlantik
             FormAfficherTraversee afficherTraversee = new FormAfficherTraversee();
             afficherTraversee.ShowDialog();
         }
-
-        private void ajouterUnDetailToolStripMenuItem_Click(object sender, EventArgs e)
+        private void afficherUnDetailToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FormAfficherReservation afficherReservation = new FormAfficherReservation();
+            afficherReservation.ShowDialog();
         }
-
-        private void modiferLesParameresToolStripMenuItem_Click(object sender, EventArgs e)
+        private void modifierUnParametreToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

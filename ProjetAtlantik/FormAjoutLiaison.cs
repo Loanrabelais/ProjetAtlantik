@@ -52,13 +52,11 @@ namespace ProjetAtlantik
             }
             catch (MySqlException e)
             {
-                Console.WriteLine("Erreur " + e.ToString());
                 lblMessageLiaison.ForeColor = Color.Red;
                 lblMessageLiaison.Text = e.Message;
             }
             catch (Exception e)
             {
-                Console.WriteLine("Erreur " + e.ToString());
                 lblMessageLiaison.ForeColor = Color.Red;
                 lblMessageLiaison.Text = e.Message;
             }
@@ -126,15 +124,6 @@ namespace ProjetAtlantik
                 return;
             }
 
-            // Optionnel : valider qu'il y a au plus 2 décimales
-            string[] parts = distance.ToString("F2", CultureInfo.InvariantCulture).Split('.');
-            if (parts[1].Length > 2)
-            {
-                lblMessageLiaison.ForeColor = Color.Red;
-                lblMessageLiaison.Text = "Distance au plus deux décimales.";
-                return;
-            }
-
             MySqlConnection maCnx;
             maCnx = new MySqlConnection("Server=127.0.0.1;Port=3306;User Id= appuser;Password=mdp;Database=projectatlantik;");
 
@@ -170,13 +159,11 @@ namespace ProjetAtlantik
             }
             catch (MySqlException ex)
             {
-                Console.WriteLine("Erreur " + ex.ToString());
                 lblMessageLiaison.ForeColor = Color.Red;
                 lblMessageLiaison.Text = ex.Message;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Erreur " + ex.ToString());
                 lblMessageLiaison.ForeColor = Color.Red;
                 lblMessageLiaison.Text = ex.Message;
             }

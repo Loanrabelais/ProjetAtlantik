@@ -121,13 +121,13 @@ namespace ProjetAtlantik
             {
                 maCnx.Open();
                 // -------- Liaison --------
-                var requeteLiaison =
-                    "SELECT L.NOLIAISON, L.NOPORT_DEPART, L.NOSECTEUR, L.NOPORT_ARRIVEE, " +
-                    "PD.NOM AS NOMPORT_DEPART, PA.NOM AS NOMPORT_ARRIVEE " +
-                    "FROM LIAISON L " +
-                    "INNER JOIN PORT PD ON L.NOPORT_DEPART = PD.NOPORT " +
-                    "INNER JOIN PORT PA ON L.NOPORT_ARRIVEE = PA.NOPORT " +
-                    "WHERE L.NOSECTEUR = @Secteur";
+                var requeteLiaison = @"
+                    SELECT L.NOLIAISON, L.NOPORT_DEPART, L.NOSECTEUR, L.NOPORT_ARRIVEE,
+                        PD.NOM AS NOMPORT_DEPART, PA.NOM AS NOMPORT_ARRIVEE
+                    FROM LIAISON L
+                    INNER JOIN PORT PD ON L.NOPORT_DEPART = PD.NOPORT
+                    INNER JOIN PORT PA ON L.NOPORT_ARRIVEE = PA.NOPORT
+                    WHERE L.NOSECTEUR = @Secteur";
                 using (var cdeLiaison = new MySqlCommand(requeteLiaison, maCnx))
                 {
                     cdeLiaison.Parameters.AddWithValue("@Secteur", secteurValeur);
@@ -137,14 +137,10 @@ namespace ProjetAtlantik
                         while (jeuEnr.Read())
                         {
                             int noLiaison = Convert.ToInt32(jeuEnr["NOLIAISON"]);
-                            int noPortDepart = Convert.ToInt32(jeuEnr["NOPORT_DEPART"]);
-                            int noSecteur = Convert.ToInt32(jeuEnr["NOSECTEUR"]);
-                            int noPortArrivee = Convert.ToInt32(jeuEnr["NOPORT_ARRIVEE"]);
                             string nomPortDepart = Convert.ToString(jeuEnr["NOMPORT_DEPART"]);
                             string nomPortArrivee = Convert.ToString(jeuEnr["NOMPORT_ARRIVEE"]);
 
-                            var uneLiaison = new Liaison(noLiaison, noPortDepart, noSecteur,
-                                noPortArrivee, nomPortDepart, nomPortArrivee);
+                            var uneLiaison = new Liaison(noLiaison, nomPortDepart, nomPortArrivee);
                             cmbLiaison.Items.Add(uneLiaison);
                         }
                     }

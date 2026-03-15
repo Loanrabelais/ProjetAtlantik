@@ -90,14 +90,10 @@ namespace ProjetAtlantik
                         while (jeuEnr.Read())
                         {
                             int noLiaison = Convert.ToInt32(jeuEnr["NOLIAISON"]);
-                            int noPortDepart = Convert.ToInt32(jeuEnr["NOPORT_DEPART"]);
-                            int noSecteur = Convert.ToInt32(jeuEnr["NOSECTEUR"]);
-                            int noPortArrivee = Convert.ToInt32(jeuEnr["NOPORT_ARRIVEE"]);
                             string nomPortDepart = Convert.ToString(jeuEnr["NOMPORT_DEPART"]);
                             string nomPortArrivee = Convert.ToString(jeuEnr["NOMPORT_ARRIVEE"]);
 
-                            var uneLiaison = new Liaison(noLiaison, noPortDepart, noSecteur,
-                                noPortArrivee, nomPortDepart, nomPortArrivee);
+                            var uneLiaison = new Liaison(noLiaison,  nomPortDepart, nomPortArrivee);
                             cmbLiaison.Items.Add(uneLiaison);
                         }
                     }
