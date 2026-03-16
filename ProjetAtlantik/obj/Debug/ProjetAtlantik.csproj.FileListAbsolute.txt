@@ -49,3 +49,4 @@ C:\Users\loanb\source\repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlant
 C:\Users\loanb\source\repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormAjoutTraverse.resources
 C:\Users\loanb\source\repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormAfficherTraversee.resources
 C:\Users\loanb\source\repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormAfficherReservation.resources
+C:\Users\loanb\source\repos\ProjetAtlantik\ProjetAtlantik\obj\Debug\ProjetAtlantik.FormModifierParametre.resources

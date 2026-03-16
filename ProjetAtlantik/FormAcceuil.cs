@@ -16,69 +16,55 @@ namespace ProjetAtlantik
         {
             InitializeComponent();
         }
-
-        private void btnModifierBateau_Click(object sender, EventArgs e)
-        {
-            FormModifierBateau formModifierBateau = new FormModifierBateau();
-            formModifierBateau.ShowDialog();
-        }
-
-        private void ajouterUnSecteurToolStripMenuItem_Click(object sender, EventArgs e)
+        private void unSecteurToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormAjoutSecteur formAjoutSecteur = new FormAjoutSecteur();
             formAjoutSecteur.ShowDialog();
-
         }
-
-        private void ajouterUnPortToolStripMenuItem_Click(object sender, EventArgs e)
+        private void unPortToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormAjoutPort formAjoutPort = new FormAjoutPort();
             formAjoutPort.ShowDialog();
         }
-
-        private void ajouterUneLiaisonToolStripMenuItem_Click(object sender, EventArgs e)
+        private void uneLiaisonToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormAjoutLiaison formAjoutLiaison = new FormAjoutLiaison();
             formAjoutLiaison.ShowDialog();
         }
-
-        private void ajouterUnTarifToolStripMenuItem_Click(object sender, EventArgs e)
+        private void desTarifsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormAjoutTarif formAjoutTarif = new FormAjoutTarif();
             formAjoutTarif.ShowDialog();
         }
-
-        private void ajouterUnBateauToolStripMenuItem_Click(object sender, EventArgs e)
+        private void unBateauToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormAjoutBateau formAjoutBateau = new FormAjoutBateau();
             formAjoutBateau.ShowDialog();
         }
-
-        private void modifierUnBateauToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormAjoutTraverse formAjoutTraverse = new FormAjoutTraverse();
-            formAjoutTraverse.ShowDialog();
-        }
-
-        private void ajouterUneTraverseeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void uneTraverseeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormAjoutTraverse ajouterTraverse = new FormAjoutTraverse();
             ajouterTraverse.ShowDialog();
         }
-
-        private void afficherUneTraverseeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void unBateauToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FormModifierBateau formModifierBateau = new FormModifierBateau();
+            formModifierBateau.ShowDialog();
+        }
+        private void lesParameresDuSiteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormModifierParametre modifierParametre = new FormModifierParametre();
+            modifierParametre.ShowDialog();
+        }
+        private void lesTraverseesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormAfficherTraversee afficherTraversee = new FormAfficherTraversee();
             afficherTraversee.ShowDialog();
         }
-        private void afficherUnDetailToolStripMenuItem_Click(object sender, EventArgs e)
+        private void detailsReservationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormAfficherReservation afficherReservation = new FormAfficherReservation();
             afficherReservation.ShowDialog();
-        }
-        private void modifierUnParametreToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

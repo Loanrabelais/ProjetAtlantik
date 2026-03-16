@@ -150,7 +150,6 @@ namespace ProjetAtlantik
                     }
 
                     int idPortGenere = Convert.ToInt32(result);
-                    Console.WriteLine("id Liaison généré  :" + idPortGenere.ToString());
 
                     tbxDistance.Text = string.Empty;
                     lblMessageLiaison.ForeColor = Color.Green;
@@ -174,6 +173,8 @@ namespace ProjetAtlantik
                     maCnx.Close();
                 }
             }
+            lblMessageLiaison.ForeColor = Color.Green;
+            lblMessageLiaison.Text = "Opération réussie";
         }
     }
 }
