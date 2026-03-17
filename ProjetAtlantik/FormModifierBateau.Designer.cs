@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gbxCapacite = new System.Windows.Forms.GroupBox();
             this.btnModifer = new System.Windows.Forms.Button();
             this.lblNomBateau = new System.Windows.Forms.Label();
             this.cmbBateau = new System.Windows.Forms.ComboBox();
             this.lblMessageBateau = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxCapacite
@@ -80,6 +83,10 @@
             this.lblMessageBateau.Size = new System.Drawing.Size(0, 16);
             this.lblMessageBateau.TabIndex = 4;
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // FormModifierBateau
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -92,6 +99,7 @@
             this.Controls.Add(this.gbxCapacite);
             this.Name = "FormModifierBateau";
             this.Text = "FormModifierBateau";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,5 +112,6 @@
         private System.Windows.Forms.Label lblNomBateau;
         private System.Windows.Forms.ComboBox cmbBateau;
         private System.Windows.Forms.Label lblMessageBateau;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using MySql.Data;
 using MySql.Data.MySqlClient;
 
 namespace ProjetAtlantik
@@ -19,13 +13,13 @@ namespace ProjetAtlantik
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAjout_Click(object sender, EventArgs e)
         {
             string nomSecteur = tbxNomSecteur.Text;
+
             if (string.IsNullOrWhiteSpace(nomSecteur))
             {
-                lblMessageSecteur.ForeColor = Color.Red;
-                lblMessageSecteur.Text = "Le nom du Secteur est requis.";
+                errorProvider.SetError(tbxNomSecteur, "Entrer un nom pour le secteur.");
                 return;
             }
 
@@ -44,28 +38,20 @@ namespace ProjetAtlantik
 
                     if (result == null || result == DBNull.Value)
                     {
-                        lblMessageSecteur.ForeColor = Color.Red;
-                        lblMessageSecteur.Text = "Aucun ID retourné.";
+                        errorProvider.SetError(tbxNomSecteur, "Aucun ID retourné.");
                         return;
                     }
 
-                    int idSecteurGenere = Convert.ToInt32(result);
-                    Console.WriteLine("id Secteur généré  :" + idSecteurGenere.ToString());
-
                     tbxNomSecteur.Text = string.Empty;
-                    lblMessageSecteur.ForeColor = Color.Green;
-                    lblMessageSecteur.Text = "Opération réussie";
                 }
             }
             catch (MySqlException ex)
             {
-                Console.WriteLine("Erreur " + ex.ToString());
                 lblMessageSecteur.ForeColor = Color.Red;
                 lblMessageSecteur.Text = ex.Message;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Erreur " + ex.ToString());
                 lblMessageSecteur.ForeColor = Color.Red;
                 lblMessageSecteur.Text = ex.Message;
             }
@@ -76,12 +62,28 @@ namespace ProjetAtlantik
                     maCnx.Close();
                 }
             }
+            lblMessageSecteur.ForeColor = Color.Green;
+            lblMessageSecteur.Text = "Opération réussie";
         }
 
-        private void tbxNomSecteur_TextChanged(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(tbxNomSecteur.Text))
-                lblMessageSecteur = null;
+        private void tbxNomSecteur_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {   
+            var objetRegEx = new Regex("^[a-zA-Zéèêëçàâôù ûïî]*$");
+            // Nombre : ^[0-9]*$
+            // Alphabétique (sans accent, sans blanc : ^[a-zA-Z]*$
+            // Alphabétique (avec accent) : ^[a-zA-Zéèêëçàâôù ûïî]*$
+
+            var résultatTest = objetRegEx.Match(tbxNomSecteur.Text);
+            if (!résultatTest.Success)
+            {
+                errorProvider.SetError(tbxNomSecteur, "Entrée non valide");
+                tbxNomSecteur.BackColor = Color.Red;
+            }
+            else
+            {
+                errorProvider.SetError(tbxNomSecteur, "");
+                tbxNomSecteur.BackColor = Color.Green;
+            }
         }
     }
 }

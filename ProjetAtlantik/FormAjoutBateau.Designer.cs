@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gbxCapacite = new System.Windows.Forms.GroupBox();
             this.btnAjout = new System.Windows.Forms.Button();
             this.tbxNomBateau = new System.Windows.Forms.TextBox();
             this.lblNomBateau = new System.Windows.Forms.Label();
             this.lblMessageBateau = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxCapacite
@@ -60,6 +63,7 @@
             this.tbxNomBateau.Name = "tbxNomBateau";
             this.tbxNomBateau.Size = new System.Drawing.Size(100, 22);
             this.tbxNomBateau.TabIndex = 2;
+            this.tbxNomBateau.Validating += new System.ComponentModel.CancelEventHandler(this.tbxNomBateau_Validating);
             // 
             // lblNomBateau
             // 
@@ -78,6 +82,10 @@
             this.lblMessageBateau.Size = new System.Drawing.Size(0, 16);
             this.lblMessageBateau.TabIndex = 4;
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // FormAjoutBateau
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -90,6 +98,7 @@
             this.Controls.Add(this.gbxCapacite);
             this.Name = "FormAjoutBateau";
             this.Text = "FormAjoutBateau";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -102,5 +111,6 @@
         private System.Windows.Forms.TextBox tbxNomBateau;
         private System.Windows.Forms.Label lblNomBateau;
         private System.Windows.Forms.Label lblMessageBateau;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

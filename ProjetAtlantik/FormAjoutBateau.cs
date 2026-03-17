@@ -1,6 +1,8 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -36,6 +38,7 @@ namespace ProjetAtlantik
                     tbx.Location = new Point(150, i);
                     tbx.Tag = uneCategorie; // conserve l'objet Categorie
                     tbx.Name = $"tbx{lettre}{libelle}";
+                    tbx.Validating += new CancelEventHandler(tbx_Validating);
                     Label lbl;
                     lbl = new Label();
                     lbl.Text = $"{uneCategorie.GetID()} ({uneCategorie.ToString()})";
@@ -51,13 +54,11 @@ namespace ProjetAtlantik
             }
             catch (MySqlException ex)
             {
-                Console.WriteLine("SQL Erreur : " + ex.ToString());
                 lblMessageBateau.ForeColor = Color.Red;
                 lblMessageBateau.Text = ex.Message;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Erreur : " + ex.ToString());
                 lblMessageBateau.ForeColor = Color.Red;
                 lblMessageBateau.Text = ex.Message;
             }
@@ -77,6 +78,16 @@ namespace ProjetAtlantik
 
         private void btnAjout_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(tbxNomBateau.Text))
+            {
+                errorProvider.SetError(tbxNomBateau, "Selectionnez un nom pour le bateau");
+                return;
+            }
+            else
+            {
+                errorProvider.SetError(tbxNomBateau, "");
+            }
+
             MySqlConnection maCnx;
             maCnx = new MySqlConnection("Server=127.0.0.1;Port=3306;User Id= appuser;Password=mdp;Database=projectatlantik;");
             try
@@ -95,7 +106,10 @@ namespace ProjetAtlantik
                     if (c is TextBox tb && tb.Tag is Categorie categorie)
                     {
                         if (!int.TryParse(tb.Text, out int capacite))
-                        { continue; }
+                        {
+                            tb.BackColor = Color.Red;
+                            continue;
+                        }
 
                         // -------- Contenue --------
                         var requeteContenue = "INSERT INTO CONTENIR (LETTRECATEGORIE, NOBATEAU, CAPACITEMAX) VALUES (@lettreCategorie, @noBateau, @capaciteMax);";
@@ -109,13 +123,11 @@ namespace ProjetAtlantik
             }
             catch (MySqlException ex)
             {
-                Console.WriteLine("Erreur " + ex.ToString());
                 lblMessageBateau.ForeColor = Color.Red;
                 lblMessageBateau.Text = ex.Message;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Erreur " + ex.ToString());
                 lblMessageBateau.ForeColor = Color.Red;
                 lblMessageBateau.Text = ex.Message;
             }
@@ -128,6 +140,44 @@ namespace ProjetAtlantik
             }
             lblMessageBateau.ForeColor = Color.Green;
             lblMessageBateau.Text = "Opération réussie";
+        }
+
+        private void tbxNomBateau_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            var objetRegEx = new Regex("^[a-zA-Zéèêëçàâôù ûïî]*$");
+            // Nombre : ^[0-9]*$
+            // Alphabétique (sans accent, sans blanc : ^[a-zA-Z]*$
+            // Alphabétique (avec accent) : ^[a-zA-Zéèêëçàâôù ûïî]*$
+
+            var résultatTest = objetRegEx.Match(tbxNomBateau.Text);
+            if (!résultatTest.Success)
+            {
+                tbxNomBateau.BackColor = Color.Red;
+            }
+            else
+            {
+                tbxNomBateau.BackColor = Color.Green;
+            }
+        }
+        private void tbx_Validating(object sender, CancelEventArgs e)
+        {
+            var tb = sender as TextBox;
+            var objetRegEx = new Regex("^[0-9,.]*$");
+            // Nombre : ^[0-9]*$
+            // Alphabétique (sans accent, sans blanc : ^[a-zA-Z]*$
+            // Alphabétique (avec accent) : ^[a-zA-Zéèêëçàâôù ûïî]*$
+
+            var resultatTest = objetRegEx.Match(tb.Text);
+            if (!resultatTest.Success)
+            {
+                errorProvider.SetError(tb, "Entrée incorrecte");
+                tb.BackColor = Color.Red;
+            }
+            else
+            {
+                errorProvider.SetError(tb, "");
+                tb.BackColor = Color.Green;
+            }
         }
     }
 }

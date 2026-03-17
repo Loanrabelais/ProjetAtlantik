@@ -18,7 +18,7 @@
 
         public override string ToString()
         {
-            return _nom;
+            return $"{_noport} - {_nom}";
         }
     }
 }

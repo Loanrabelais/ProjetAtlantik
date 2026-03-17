@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblNomPrenom = new System.Windows.Forms.Label();
             this.lblMessageReservation = new System.Windows.Forms.Label();
             this.gbxDetails = new System.Windows.Forms.GroupBox();
             this.lvResevation = new System.Windows.Forms.ListView();
             this.cmbClient = new System.Windows.Forms.ComboBox();
-            this.lblMontant = new System.Windows.Forms.Label();
-            this.lblReglement = new System.Windows.Forms.Label();
-            this.gbxDetails.SuspendLayout();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNomPrenom
@@ -57,11 +57,9 @@
             // 
             // gbxDetails
             // 
-            this.gbxDetails.Controls.Add(this.lblReglement);
-            this.gbxDetails.Controls.Add(this.lblMontant);
             this.gbxDetails.Location = new System.Drawing.Point(239, 186);
             this.gbxDetails.Name = "gbxDetails";
-            this.gbxDetails.Size = new System.Drawing.Size(512, 216);
+            this.gbxDetails.Size = new System.Drawing.Size(549, 287);
             this.gbxDetails.TabIndex = 5;
             this.gbxDetails.TabStop = false;
             this.gbxDetails.Text = "Détails de la réservation";
@@ -86,27 +84,15 @@
             this.cmbClient.TabIndex = 7;
             this.cmbClient.SelectedIndexChanged += new System.EventHandler(this.cmbClient_SelectedIndexChanged);
             // 
-            // lblMontant
+            // errorProvider
             // 
-            this.lblMontant.AutoSize = true;
-            this.lblMontant.Location = new System.Drawing.Point(6, 175);
-            this.lblMontant.Name = "lblMontant";
-            this.lblMontant.Size = new System.Drawing.Size(0, 16);
-            this.lblMontant.TabIndex = 0;
-            // 
-            // lblReglement
-            // 
-            this.lblReglement.AutoSize = true;
-            this.lblReglement.Location = new System.Drawing.Point(42, 175);
-            this.lblReglement.Name = "lblReglement";
-            this.lblReglement.Size = new System.Drawing.Size(0, 16);
-            this.lblReglement.TabIndex = 1;
+            this.errorProvider.ContainerControl = this;
             // 
             // FormAfficherReservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 485);
             this.Controls.Add(this.cmbClient);
             this.Controls.Add(this.lvResevation);
             this.Controls.Add(this.gbxDetails);
@@ -114,8 +100,7 @@
             this.Controls.Add(this.lblNomPrenom);
             this.Name = "FormAfficherReservation";
             this.Text = "FormAfficherReservation";
-            this.gbxDetails.ResumeLayout(false);
-            this.gbxDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,7 +113,6 @@
         private System.Windows.Forms.GroupBox gbxDetails;
         private System.Windows.Forms.ListView lvResevation;
         private System.Windows.Forms.ComboBox cmbClient;
-        private System.Windows.Forms.Label lblReglement;
-        private System.Windows.Forms.Label lblMontant;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

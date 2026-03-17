@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblMessagePort = new System.Windows.Forms.Label();
             this.btnAjoutPort = new System.Windows.Forms.Button();
             this.labelPort = new System.Windows.Forms.Label();
             this.tbxNomPort = new System.Windows.Forms.TextBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMessagePort
@@ -67,6 +70,11 @@
             this.tbxNomPort.Name = "tbxNomPort";
             this.tbxNomPort.Size = new System.Drawing.Size(100, 22);
             this.tbxNomPort.TabIndex = 4;
+            this.tbxNomPort.Validating += new System.ComponentModel.CancelEventHandler(this.tbxNomPort_Validating);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // FormAjoutPort
             // 
@@ -79,6 +87,7 @@
             this.Controls.Add(this.tbxNomPort);
             this.Name = "FormAjoutPort";
             this.Text = "FormAjoutPort";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -90,5 +99,6 @@
         private System.Windows.Forms.Button btnAjoutPort;
         private System.Windows.Forms.Label labelPort;
         private System.Windows.Forms.TextBox tbxNomPort;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

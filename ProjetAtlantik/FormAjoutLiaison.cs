@@ -2,6 +2,7 @@
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -74,7 +75,7 @@ namespace ProjetAtlantik
             }
         }
 
-        private void btnSubmit_Click(object sender, EventArgs e)
+        private void btnAjout_Click(object sender, EventArgs e)
         {
             // Vérifie qu'un secteur est sélectionné
             if (lbxSecteur.SelectedIndex == -1)
@@ -175,6 +176,25 @@ namespace ProjetAtlantik
             }
             lblMessageLiaison.ForeColor = Color.Green;
             lblMessageLiaison.Text = "Opération réussie";
+        }
+        private void tbxDistance_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            var objetRegEx = new Regex("^[0-9]*$");
+            //var objetRegEx = new Regex("^[0-9]*$");
+            // Nombre : ^[0-9]*$
+            // Alphabétique (sans accent, sans blanc : ^[a-zA-Z]*$
+            // Alphabétique (avec accent) : ^[a-zA-Zéèêëçàâôù ûïî]*$
+
+            var resultatTest = objetRegEx.Match(tbxDistance.Text);
+            if (!resultatTest.Success)
+            {
+                errorProvider.SetError(tbxDistance, "Valeur entrée incorrecte");
+                tbxDistance.BackColor = Color.Red;
+            }
+            else
+            {
+                tbxDistance.BackColor = Color.Green;
+            }
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblSite = new System.Windows.Forms.Label();
             this.lblRang = new System.Windows.Forms.Label();
             this.lblIdentifiant = new System.Windows.Forms.Label();
@@ -42,7 +43,9 @@
             this.lblMessageParametre = new System.Windows.Forms.Label();
             this.btnModifier = new System.Windows.Forms.Button();
             this.gbxIdentifiant = new System.Windows.Forms.GroupBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbxIdentifiant.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // lblSite
@@ -87,6 +90,7 @@
             this.txbSite.Name = "txbSite";
             this.txbSite.Size = new System.Drawing.Size(100, 22);
             this.txbSite.TabIndex = 4;
+            this.txbSite.Validating += new System.ComponentModel.CancelEventHandler(this.txbSite_Validating);
             // 
             // txbRang
             // 
@@ -94,6 +98,7 @@
             this.txbRang.Name = "txbRang";
             this.txbRang.Size = new System.Drawing.Size(46, 22);
             this.txbRang.TabIndex = 5;
+            this.txbRang.Validating += new System.ComponentModel.CancelEventHandler(this.txbRang_Validating);
             // 
             // txbIdentifiant
             // 
@@ -101,6 +106,7 @@
             this.txbIdentifiant.Name = "txbIdentifiant";
             this.txbIdentifiant.Size = new System.Drawing.Size(118, 22);
             this.txbIdentifiant.TabIndex = 6;
+            this.txbIdentifiant.TextChanged += new System.EventHandler(this.txbIdentifiant_TextChanged);
             // 
             // txbCle
             // 
@@ -109,6 +115,7 @@
             this.txbCle.Name = "txbCle";
             this.txbCle.Size = new System.Drawing.Size(190, 79);
             this.txbCle.TabIndex = 7;
+            this.txbCle.TextChanged += new System.EventHandler(this.txbCle_TextChanged);
             // 
             // txbMel
             // 
@@ -116,6 +123,7 @@
             this.txbMel.Name = "txbMel";
             this.txbMel.Size = new System.Drawing.Size(147, 22);
             this.txbMel.TabIndex = 8;
+            this.txbMel.TextChanged += new System.EventHandler(this.txbMel_TextChanged);
             // 
             // lblMel
             // 
@@ -171,11 +179,15 @@
             this.gbxIdentifiant.TabStop = false;
             this.gbxIdentifiant.Text = "Identifiant PayBox";
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // FormModifierParametre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(374, 361);
+            this.ClientSize = new System.Drawing.Size(398, 361);
             this.Controls.Add(this.gbxIdentifiant);
             this.Controls.Add(this.btnModifier);
             this.Controls.Add(this.lblMessageParametre);
@@ -186,6 +198,7 @@
             this.Text = "FormModifierParametre";
             this.gbxIdentifiant.ResumeLayout(false);
             this.gbxIdentifiant.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,5 +220,6 @@
         private System.Windows.Forms.Label lblMessageParametre;
         private System.Windows.Forms.Button btnModifier;
         private System.Windows.Forms.GroupBox gbxIdentifiant;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

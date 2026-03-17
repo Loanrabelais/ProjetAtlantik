@@ -15,6 +15,17 @@ namespace ProjetAtlantik
         public FormAcceuil()
         {
             InitializeComponent();
+
+            var bg = ProjetAtlantik.Properties.Resources.ATLANTIK;
+            if (bg != null)
+            {
+                // définit la taille du client du form sur la taille de l'image
+                this.ClientSize = new Size(bg.Width, bg.Height);
+
+                // facultatif : si vous voulez que le form soit non redimensionnable
+                this.FormBorderStyle = FormBorderStyle.FixedSingle;
+                this.MaximizeBox = false;
+            }
         }
         private void unSecteurToolStripMenuItem_Click(object sender, EventArgs e)
         {

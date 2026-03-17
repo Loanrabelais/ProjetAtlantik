@@ -1,6 +1,8 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -34,6 +36,7 @@ namespace ProjetAtlantik
                     tbx.Location = new Point(150, i);
                     tbx.Tag = uneCategorie; // conserve l'objet Categorie
                     tbx.Name = $"tbx{lettre}{libelle}";
+                    tbx.Validating += new CancelEventHandler(tbx_Validating);
                     Label lbl;
                     lbl = new Label();
                     lbl.Text = $"{uneCategorie.GetID()} ({uneCategorie.ToString()})";
@@ -139,9 +142,12 @@ namespace ProjetAtlantik
         {
             if (cmbBateau.SelectedItem == null)
             {
-                lblMessageBateau.ForeColor = Color.Red;
-                lblMessageBateau.Text = "Selecionnez un bateau";
+                errorProvider.SetError(cmbBateau, "Séléctionnez un Bateau");
                 return;
+            }
+            else
+            { 
+                errorProvider.SetError(cmbBateau, "");
             }
             MySqlConnection maCnx;
             maCnx = new MySqlConnection("Server=127.0.0.1;Port=3306;User Id= appuser;Password=mdp;Database=projectatlantik;");
@@ -190,6 +196,26 @@ namespace ProjetAtlantik
             }
             lblMessageBateau.ForeColor = Color.Green;
             lblMessageBateau.Text = "Opération réussie";
+        }
+        private void tbx_Validating(object sender, CancelEventArgs e)
+        {
+            var tb = sender as TextBox;
+            var objetRegEx = new Regex("^[0-9,.]*$");
+            // Nombre : ^[0-9]*$
+            // Alphabétique (sans accent, sans blanc : ^[a-zA-Z]*$
+            // Alphabétique (avec accent) : ^[a-zA-Zéèêëçàâôù ûïî]*$
+
+            var resultatTest = objetRegEx.Match(tb.Text);
+            if (!resultatTest.Success)
+            {
+                errorProvider.SetError(tb, "Entrée incorrect");
+                tb.BackColor = Color.Red;
+            }
+            else
+            {
+                errorProvider.SetError(tb, "");
+                tb.BackColor = Color.Green;
+            }
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblMessageTraverse = new System.Windows.Forms.Label();
             this.cmbLiaison = new System.Windows.Forms.ComboBox();
             this.lblLiaison = new System.Windows.Forms.Label();
@@ -37,6 +38,8 @@
             this.lblDate = new System.Windows.Forms.Label();
             this.btnAfficher = new System.Windows.Forms.Button();
             this.lvTravervees = new System.Windows.Forms.ListView();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMessageTraverse
@@ -120,6 +123,10 @@
             this.lvTravervees.UseCompatibleStateImageBehavior = false;
             this.lvTravervees.View = System.Windows.Forms.View.Details;
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // FormAfficherTraversee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -136,6 +143,7 @@
             this.Controls.Add(this.lbxSecteur);
             this.Name = "FormAfficherTraversee";
             this.Text = "FormAfficherTraversee";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,5 +160,6 @@
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Button btnAfficher;
         private System.Windows.Forms.ListView lvTravervees;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

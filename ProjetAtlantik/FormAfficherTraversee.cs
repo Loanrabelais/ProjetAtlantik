@@ -299,13 +299,30 @@ namespace ProjetAtlantik
         }
         private void btnAfficher_Click(object sender, EventArgs e)
         {
-            if (lbxSecteur.SelectedItem == null || cmbLiaison.SelectedItem == null)
-            {
-                lblMessageTraverse.ForeColor = Color.Red;
-                lblMessageTraverse.Text = "Erreur : veuillez selectioner toutes les options";
+            if (lbxSecteur.SelectedItem == null)
+            { 
+                errorProvider.SetError(lbxSecteur, "veuillez selectioner un secteur");
                 return;
             }
-            else { lblMessageTraverse.Text = null; }
+            errorProvider.SetError(lbxSecteur, "");
+
+            if (cmbLiaison.SelectedItem == null)
+            { 
+                errorProvider.SetError(cmbLiaison, "veuillez selectioner une liaison");
+                return;
+            }
+            errorProvider.SetError(cmbLiaison, "");
+
+            var liaison = (Liaison)cmbLiaison.SelectedItem;
+            int noLiaison = liaison.GetID();
+            DateTime date = dateSelect.Value;
+            var lesTraversees = getLesTraverseesBateaux(noLiaison, date);
+            if (lesTraversees == null || lesTraversees.Count == 0)
+            {
+                lblMessageTraverse.ForeColor = Color.Red;
+                lblMessageTraverse.Text = "Aucune traversée existante pour les valeurs sélectionnées";
+                return;
+            }
 
             lvTravervees.Clear();
             lvTravervees.Columns.Clear();
@@ -316,17 +333,12 @@ namespace ProjetAtlantik
             lvTravervees.Columns.Add("Heure", 120);
             lvTravervees.Columns.Add("Bateau", 120);
 
-            var liaison = (Liaison)cmbLiaison.SelectedItem;
-            int noLiaison = liaison.GetID();
-            DateTime date = dateSelect.Value;
-
             var lesCategories = getLesCategories();
             foreach (Categorie c in lesCategories)
             {
                 lvTravervees.Columns.Add($"{c.GetID()}: {c.ToString()}", 100);
             }
 
-            var lesTraversees = getLesTraverseesBateaux(noLiaison, date);
             foreach (Traversee t in lesTraversees)
             {
                 int cols = 3 + lesCategories.Count;

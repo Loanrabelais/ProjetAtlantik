@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblSecteur = new System.Windows.Forms.Label();
             this.lblDepart = new System.Windows.Forms.Label();
             this.lblArrivee = new System.Windows.Forms.Label();
@@ -36,8 +37,10 @@
             this.cmbDepart = new System.Windows.Forms.ComboBox();
             this.cmbArrivee = new System.Windows.Forms.ComboBox();
             this.tbxDistance = new System.Windows.Forms.TextBox();
-            this.btnSubmit = new System.Windows.Forms.Button();
             this.lblMessageLiaison = new System.Windows.Forms.Label();
+            this.btnAjout = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // lblSecteur
@@ -107,16 +110,7 @@
             this.tbxDistance.Name = "tbxDistance";
             this.tbxDistance.Size = new System.Drawing.Size(100, 22);
             this.tbxDistance.TabIndex = 7;
-            // 
-            // btnSubmit
-            // 
-            this.btnSubmit.Location = new System.Drawing.Point(656, 367);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnSubmit.TabIndex = 8;
-            this.btnSubmit.Text = "Ajouter";
-            this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            this.tbxDistance.Validating += new System.ComponentModel.CancelEventHandler(this.tbxDistance_Validating);
             // 
             // lblMessageLiaison
             // 
@@ -126,13 +120,27 @@
             this.lblMessageLiaison.Size = new System.Drawing.Size(0, 16);
             this.lblMessageLiaison.TabIndex = 9;
             // 
+            // btnAjout
+            // 
+            this.btnAjout.Location = new System.Drawing.Point(681, 373);
+            this.btnAjout.Name = "btnAjout";
+            this.btnAjout.Size = new System.Drawing.Size(75, 23);
+            this.btnAjout.TabIndex = 10;
+            this.btnAjout.Text = "Ajouter";
+            this.btnAjout.UseVisualStyleBackColor = true;
+            this.btnAjout.Click += new System.EventHandler(this.btnAjout_Click);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
             // FormAjoutLiaison
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnAjout);
             this.Controls.Add(this.lblMessageLiaison);
-            this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.tbxDistance);
             this.Controls.Add(this.cmbArrivee);
             this.Controls.Add(this.cmbDepart);
@@ -143,6 +151,7 @@
             this.Controls.Add(this.lblSecteur);
             this.Name = "FormAjoutLiaison";
             this.Text = "FormAjoutLiaison";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,7 +167,8 @@
         private System.Windows.Forms.ComboBox cmbDepart;
         private System.Windows.Forms.ComboBox cmbArrivee;
         private System.Windows.Forms.TextBox tbxDistance;
-        private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Label lblMessageLiaison;
+        private System.Windows.Forms.Button btnAjout;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

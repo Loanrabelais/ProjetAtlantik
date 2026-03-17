@@ -66,6 +66,16 @@ namespace ProjetAtlantik
             maCnx = new MySqlConnection("Server=127.0.0.1;Port=3306;User Id=appuser;Password=mdp;Database=projectatlantik;");
             try
             {
+                lvResevation.Clear();
+                lvResevation.Columns.Clear();
+                lvResevation.View = View.Details;
+                lvResevation.GridLines = true; // affiche la grille
+                lvResevation.FullRowSelect = true; // Mode de sélection : ligne
+                lvResevation.Columns.Add("N° réservation", 80);
+                lvResevation.Columns.Add("Liaison", 120);
+                lvResevation.Columns.Add("N° Traversée", 85);
+                lvResevation.Columns.Add("Date départ", 120);
+
                 maCnx.Open();
                 // -------- Reservation --------
                 var requeteReservation = @"
@@ -80,6 +90,7 @@ namespace ProjetAtlantik
                 var cmdReservation = new MySqlCommand(requeteReservation, maCnx);
                 cmdReservation.Parameters.AddWithValue("@noClient", client.GetID());
                 jeuEnr = cmdReservation.ExecuteReader();
+
                 while (jeuEnr.Read())
                 {
                     int noReservation = (int)jeuEnr["NORESERVATION"];
@@ -87,16 +98,6 @@ namespace ProjetAtlantik
                     string nomPortArrivee = (string)jeuEnr["NOMPORT_ARRIVEE"];
                     int noTraversee = (int)jeuEnr["NOTRAVERSEE"];
                     DateTime nomDateHeure = (DateTime)jeuEnr["DATEHEURE"];
-
-                    lvResevation.Clear();
-                    lvResevation.Columns.Clear();
-                    lvResevation.View = View.Details;
-                    lvResevation.GridLines = true; // affiche la grille
-                    lvResevation.FullRowSelect = true; // Mode de sélection : ligne
-                    lvResevation.Columns.Add("N° réservation", 80);
-                    lvResevation.Columns.Add("Liaison", 120);
-                    lvResevation.Columns.Add("N° Traversée", 85);
-                    lvResevation.Columns.Add("Date départ", 120);
 
                     string[] tabItem = new string[4];
                     tabItem[0] = noReservation.ToString();
@@ -132,6 +133,7 @@ namespace ProjetAtlantik
         }
         private void lvResevation_SelectedIndexChanged(object sender, EventArgs e)
         {
+            gbxDetails.Controls.Clear();
             MySqlConnection maCnx;
             MySqlDataReader jeuEnr = null;
             maCnx = new MySqlConnection("Server=127.0.0.1;Port=3306;User Id=appuser;Password=mdp;Database=projectatlantik;");
@@ -144,9 +146,9 @@ namespace ProjetAtlantik
                     FROM RESERVATION R
                     JOIN ENREGISTRER E ON R.NORESERVATION = E.NORESERVATION
                     JOIN TYPE T ON E.NOTYPE = T.NOTYPE AND E.LETTRECATEGORIE = T.LETTRECATEGORIE 
-                    WHERE NOCLIENT = @noClient";
+                    WHERE R.NORESERVATION = @noReservation";
                 var cmdDetails = new MySqlCommand(requeteDetails, maCnx);
-                cmdDetails.Parameters.AddWithValue("@noClient", lvResevation.SelectedItems[0].Text);
+                cmdDetails.Parameters.AddWithValue("@noReservation", lvResevation.SelectedItems[0].Text);
                 jeuEnr = cmdDetails.ExecuteReader();
                 int i = 20;
                 string ModaliteReglement = "";
@@ -169,10 +171,16 @@ namespace ProjetAtlantik
                     i += 25;
                 }
                 jeuEnr.Close();
+                Label lblMontant = new Label();
                 lblMontant.Text = $"montantTotal: {montantTotal}";
                 lblMontant.Location = new Point(10, i);
+                lblMontant.AutoSize = true;
+                Label lblReglement = new Label();
                 lblReglement.Text = $"Moyen de règlement: {ModaliteReglement}";
                 lblReglement.Location = new Point(10, i + 25);
+                lblReglement.AutoSize = true;
+                gbxDetails.Controls.Add(lblMontant);
+                gbxDetails.Controls.Add(lblReglement);
             }
             catch (MySqlException ex)
             {

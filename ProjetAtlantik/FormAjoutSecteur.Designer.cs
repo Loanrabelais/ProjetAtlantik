@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tbxNomSecteur = new System.Windows.Forms.TextBox();
             this.labelSecteur = new System.Windows.Forms.Label();
-            this.btnAjoutSecteur = new System.Windows.Forms.Button();
             this.lblMessageSecteur = new System.Windows.Forms.Label();
+            this.btnAjout = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // tbxNomSecteur
@@ -40,6 +43,7 @@
             this.tbxNomSecteur.Name = "tbxNomSecteur";
             this.tbxNomSecteur.Size = new System.Drawing.Size(100, 22);
             this.tbxNomSecteur.TabIndex = 0;
+            this.tbxNomSecteur.Validating += new System.ComponentModel.CancelEventHandler(this.tbxNomSecteur_Validating);
             // 
             // labelSecteur
             // 
@@ -50,35 +54,41 @@
             this.labelSecteur.TabIndex = 1;
             this.labelSecteur.Text = "Nom du secteur :";
             // 
-            // btnAjoutSecteur
-            // 
-            this.btnAjoutSecteur.Location = new System.Drawing.Point(365, 177);
-            this.btnAjoutSecteur.Name = "btnAjoutSecteur";
-            this.btnAjoutSecteur.Size = new System.Drawing.Size(75, 23);
-            this.btnAjoutSecteur.TabIndex = 2;
-            this.btnAjoutSecteur.Text = "Ajouter";
-            this.btnAjoutSecteur.UseVisualStyleBackColor = true;
-            this.btnAjoutSecteur.Click += new System.EventHandler(this.button1_Click);
-            // 
             // lblMessageSecteur
             // 
             this.lblMessageSecteur.AutoSize = true;
+            this.lblMessageSecteur.ForeColor = System.Drawing.Color.Green;
             this.lblMessageSecteur.Location = new System.Drawing.Point(378, 141);
             this.lblMessageSecteur.Name = "lblMessageSecteur";
             this.lblMessageSecteur.Size = new System.Drawing.Size(0, 16);
             this.lblMessageSecteur.TabIndex = 3;
+            // 
+            // btnAjout
+            // 
+            this.btnAjout.Location = new System.Drawing.Point(365, 160);
+            this.btnAjout.Name = "btnAjout";
+            this.btnAjout.Size = new System.Drawing.Size(75, 23);
+            this.btnAjout.TabIndex = 4;
+            this.btnAjout.Text = "Ajouter";
+            this.btnAjout.UseVisualStyleBackColor = true;
+            this.btnAjout.Click += new System.EventHandler(this.btnAjout_Click);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // FormAjoutSecteur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(758, 392);
+            this.Controls.Add(this.btnAjout);
             this.Controls.Add(this.lblMessageSecteur);
-            this.Controls.Add(this.btnAjoutSecteur);
             this.Controls.Add(this.labelSecteur);
             this.Controls.Add(this.tbxNomSecteur);
             this.Name = "FormAjoutSecteur";
             this.Text = "FormAjoutSecteur";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -88,7 +98,8 @@
 
         private System.Windows.Forms.TextBox tbxNomSecteur;
         private System.Windows.Forms.Label labelSecteur;
-        private System.Windows.Forms.Button btnAjoutSecteur;
         private System.Windows.Forms.Label lblMessageSecteur;
+        private System.Windows.Forms.Button btnAjout;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
